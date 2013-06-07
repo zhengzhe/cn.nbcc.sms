@@ -7,21 +7,14 @@ import cn.nbcc.sms.entities.Student.Grade;
  * @author  zhengzhe
  * @Jun 7, 2013
  */
-public class HonorGradingStrategy implements GradingStrategy {
+public class HonorGradingStrategy extends BasicGradingStrategy implements GradingStrategy {
 	@Override
 	public int getGradePointsFor(Grade grade) {
-		switch (grade) {
-		case A:
-			return 6;
-		case B:
-			return 5;
-		case C:
-			return 4;
-		case D:
-			return 3;
-		default:
-			return 0;
+		int point = basicGradeFor(grade);
+		if (point>0) {
+			point+=1;
 		}
+		return point;
 	}
 }
 

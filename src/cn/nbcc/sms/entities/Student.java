@@ -50,7 +50,6 @@ public class Student {
 		this.isHornor = isHornor;
 	}
 
-
 	private ArrayList<Grade> grades = new ArrayList<Student.Grade>();
 	
 	
