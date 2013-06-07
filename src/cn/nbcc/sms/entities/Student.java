@@ -17,6 +17,20 @@ public class Student {
 	//获得的现有学分
 	int credits;
 	
+	//TODO:01添加策略变量gradingStrategy，并初始化为普通等级分数策略
+	private GradingStrategy gradingStrategy=new RegularGradingStrategy();
+	
+	
+	//TODO:02添加gradingStrategy的setters和getters方法
+
+	public GradingStrategy getGradingStrategy() {
+		return gradingStrategy;
+	}
+
+	public void setGradingStrategy(GradingStrategy gradingStrategy) {
+		this.gradingStrategy = gradingStrategy;
+	}
+
 
 	boolean isHornor;
 	boolean isGuest;
@@ -84,27 +98,10 @@ public class Student {
 		}
 		double points = 0;
 		for (Grade grade : grades) {
-			points = gradePointsFor(grade);
+			//TODO:03使用策略接口的相应方法来获取分数
+			points += gradingStrategy.getGradePointsFor(grade);
 		}
-		if(isHornor)
-			points+=1;
 		return points /grades.size();
 	}
-
-	private double gradePointsFor(Grade grade) {
-		switch (grade) {
-		case A:
-			return 4;
-		case B:
-			return 3;
-		case C:
-			return 2;
-		case D:
-			return 1;
-		default:
-			return 0;
-		}
-	}
-	
 }
 
