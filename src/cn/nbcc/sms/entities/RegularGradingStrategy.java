@@ -7,21 +7,13 @@ import cn.nbcc.sms.entities.Student.Grade;
  * @author  zhengzhe
  * @Jun 7, 2013
  */
-public class RegularGradingStrategy implements GradingStrategy {
+//TODO:05-2使用继承简化代码
+//TODO:08-2使用继承抽象类简化代码
+public class RegularGradingStrategy extends BasicGradingStrategy {
 	@Override
 	public int getGradePointsFor(Grade grade) {
-		switch (grade) {
-		case A:
-			return 5;
-		case B:
-			return 4;
-		case C:
-			return 3;
-		case D:
-			return 2;
-		default:
-			return 0;
-		}
+		//TODO:06-2调用父类相应方法简化代码
+		return super.basicGradeFor(grade);
 	}
 }
 
