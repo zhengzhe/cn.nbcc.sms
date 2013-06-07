@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         id="application"
+         point="org.eclipse.core.runtime.applications">
+      <application>
+         <run
+               class="cn.nbcc.zhengzhe.sms.intro.Application">
+         </run>
+      </application>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            name="RCP Perspective"
+            class="cn.nbcc.zhengzhe.sms.intro.Perspective"
+            id="cn.nbcc.zhengzhe.sms.perspective">
+      </perspective>
+   </extension>
+   <extension
+         id="product"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="cn.nbcc.zhengzhe.sms.application"
+            name="学生信息管理系统">
+         <property
+               name="windowImages"
+               value="icons/alt_window_16.gif,icons/alt_window_32.gif">
+         </property>
+         <property
+               name="appName"
+               value="学生信息管理系统">
+         </property>
+      </product>
+   </extension>
+   <extension
+         point="org.eclipse.ui.intro">
+      <intro
+            class="org.eclipse.ui.intro.config.CustomizableIntroPart"
+            id="cn.nbcc.zhengzhe.sms.intro">
+      </intro>
+      <introProductBinding
+            introId="cn.nbcc.zhengzhe.sms.intro"
+            productId="cn.nbcc.zhengzhe.sms.product">
+      </introProductBinding>
+   </extension>
+   <extension
+         point="org.eclipse.ui.intro.config">
+      <config
+            introId="cn.nbcc.zhengzhe.sms.intro"
+            content="introContent.xml"
+            id="cn.nbcc.zhengzhe.sms.configId">
+         <presentation
+               home-page-id="root">
+            <implementation
+                  kind="html"
+                  os="win32,linux,macosx">
+            </implementation>
+         </presentation>
+      </config>
+   </extension>
+
+</plugin>
