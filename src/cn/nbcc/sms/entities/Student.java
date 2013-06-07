@@ -10,7 +10,17 @@ import java.util.ArrayList;
 
 public class Student {
 	
-	enum Grade{A,B,C,D,F};
+	public enum Grade{
+		A(5),B(4),C(3),D(2),F(0);
+		private int point;
+		private Grade(int point) {
+			this.point=point;
+		}
+		int getPoint(){
+			return point;
+		}
+		
+		};
 	
 	String id;
 	String name;
