@@ -8,6 +8,5 @@ public class Scorer {
 	public int getScorer(String input) {
 		return Integer.parseInt(input);
 	}
-
 }
 
